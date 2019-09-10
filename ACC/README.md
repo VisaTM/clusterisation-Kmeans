@@ -1,15 +1,16 @@
-ACC programme
+Programme ACC
 ========================
 
-C language programme to perform a connected component analysis (in French, _**A**nalyse en **C**omposantes **C**onnexes_, hence the **ACC** acronym). 
+Programme en langage C pour exécuter une _**A**nalyse en **C**omposantes **C**onnexes_. 
 
 ### Installation
 
-Copy the different files of this directory in a temporary directory and run the command 
+Copiez les différents fichiers de ce répertoire dans un répertoire temporaire et lancez la commande : 
 
 ```
     make
 ```
 
-Copy the newly compiled programme `acc` in a directory present in the $*PATH* variable, as `~/bin` or `/usr/local/bin`. On Cygwin, the programme is named `acc.exe`. 
+Copiez le fichier nouvellement compilé “acc” dans un répertoire présent dans la variable $*PATH*, 
+comme “~/bin” or “/usr/local/bin”. Sous Cygwin, ce programme s'appellent “acc.exe”. 
 
