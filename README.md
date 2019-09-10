@@ -42,7 +42,7 @@ variable globale $*MATLABPATH*
     export MATLABPATH=/path/to/scripts
 ```
 
-soit en utilisant l’option “-s” (voir la section the “[Options](Options)” ci-dessous). 
+soit en utilisant l’option “-s” (voir la section the “[Options](https://github.com/VisaTM/clusterisation-Kmeans#options)” ci-dessous). 
 
 #### 4 - ACC
 
