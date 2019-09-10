@@ -1,0 +1,111 @@
+<tool id="neurodoc" name="K-means clustering" version="0.9.2">
+  <requirements>
+    <container type="docker">visatm/neurodoc</container>
+  </requirements>
+  <description>on a “document × term” datafile</description>
+  <command><![CDATA[
+    neurodoc -i "$input" -o "$output" -c $clusters --json
+    #if $metadata
+    -m "$metadata"
+    #end if
+    #if $frequency != 2
+    -f $frequency
+    #end if
+    #if $term != 1.0
+    -t $term
+    #end if
+    #if $document != 0.3
+    -d $document
+    #end if
+  ]]></command>
+  <inputs>
+    <param name="input" type="data" format="tabular" label="Input file “document × term”" />
+    <param name="metadata" type="data" format="tabular" optional="true" label="Metadata file" />
+    <param name="clusters" type="integer" value="" min="2" max="200" label="Number of clusters" />
+    <param name="frequency" type="integer" value="2" min="1" label="Minimum frequency of terms (= nb. of documents)" />
+    <param name="term" type="float" value="1.0" min="0.0" label="Term threshold" />
+    <param name="document" type="float" value="0.3" min="0.0" label="Document threshold" />
+  </inputs>
+  <outputs>
+    <data format="json" name="output" />
+  </outputs>
+
+  <tests>
+    <test>
+      <param name="input" value="ndocDocsMots.txt" />
+      <param name="clusters" value="10" />
+      <output name="output" file="ndocClusters.xml" />
+    </test>
+  </tests>
+
+  <help><![CDATA[
+This clustering tool applies the ** axial K-means** algorithm — as well as an **PCA** — on a *“document × term”* datafile.
+
+.. class:: warningmark
+
+This UTF-8-encoded datafile is made of 2 tab-separated columns and contains on each line a document identifier and a term “indexing” that document.
+
+.. class:: warningmark
+
+There are as many lines as the number of *“document — term”* pairs.
+
+-----
+
+**Options**
+
+The programme ha several arguments, some **mandatory**, some **optional**.
+
++ *“document × term”* **datafile name** 
+
++ **number of expected clusters**
+
++ *metadata file name*
+
++ *minimum frequency of terms*, i.e. the minimum number of documents in which a term can be foound (by default: 2)
+
++ *term threshold*, i.e. the minimum weight of a term necessary for inclusion in a cluster (by default: 1.0)
+
++ *document threshold*, i.e. the minimum weight of a document necessary for inclusion in a cluster (par défaut : 0.3)
+
+.. class:: infomark
+
+For these 2 last options, it is better not to change them. 
+
+-----
+
+**Input data**
+
+Example:
+
+::
+
+      GS2_0000067	abrupt transition
+      GS2_0000067	apparent contrast
+      GS2_0000067	arc collision
+         ...
+      GS2_0000067	wide variability
+      GS2_0000592	anomalous change
+      GS2_0000592	atomic oxygen
+         ...
+
+-----
+
+**Metadata**
+
+The metadata file is composed of tab-separated columns. The first line is reserved to the header containing the different field names. Only the fields appearing in boldface in the following list will be used:
+
++ **Filename**
++ **IstexId** or **Istex Id**
++ **ARK**
++ **DOI**
++ **Title**
++ **Source**
++ **PublicationDate** or **Publication date**
++ **Author** or **Authors**
+
+Please note that the field names are case-insensitive. “**IstexId**”, “**istexId**” and “**istexid**” are accepted, as well as “**ISTEXID**”. 
+
+
+  ]]></help>
+
+</tool>
