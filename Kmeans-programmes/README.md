@@ -1,28 +1,30 @@
-Axial K-means programmes
-========================
+Programmes de K-means axiales
+=============================
 
-FORTRAN programmes to perform clustering by axial K-means 
+Programmes FORTRAN pour exécuter une clusterisation par K-means axiales 
 
 ### Installation
 
-Copy the different files of this directory in a temporary directory and run the command 
+Copiez les différents fichiers de ce répertoire dans un répertoire temporaire et lancez la commande : 
 
 ```
     make
 ```
 
-Copy the newly compiled programmes `IndocInitMat` and `IndocKmeansAx` in a directory 
-present in the $*PATH* variable, as `~/bin` or `/usr/local/bin`. On Cygwin, the programmes are 
-named `IndocInitMat.exe` and `IndocKmeansAx.exe`. 
+Copiez les programmes nouvellement compilés “IndocInitMat” et “IndocKmeansAx” dans un répertoire 
+présent dans la variable $*PATH*, comme “~/bin” or “/usr/local/bin”. Sous Cygwin, ces programmes 
+s'appellent “IndocInitMat.exe” et “IndocKmeansAx.exe”. 
 
 ### Limitation
 
-Currently, the limits of the application are:
+Actuellement, les limites de cette application sont : 
 
  - 200 clusters
- - 200 000 terms
+ - 200 000 termes
  - 300 000 documents
 
-These limits are set in the header file `IndocKmeansAx.h` and can be modified by changing 
-respectively the values of the parameters NEURONES, IDESCRIPTEURS and IDOCUMENTS before 
-recompiling the FORTRAN programmes with `make`.
+Ces limites sont définies dans le fichier “*header*” `IndocKmeansAx.h` et peuvent être modifiées 
+en changeant respectivement les valeurs des paramètres `NEURONES`, `IDESCRIPTEURS` et `IDOCUMENTS` avant 
+de recompiler les programmes FORTRAN avec `make`. 
+
+
