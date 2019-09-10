@@ -113,13 +113,13 @@ publication et auteurs. La première ligne est réservée aux noms de champ. Seu
 les champs dont le nom apparait dans la liste suivante seront utilisés : 
 
  * __Filename__
- * __IstexId__ or __Istex Id__
+ * __IstexId__ ou __Istex Id__
  * __ARK__
  * __DOI__
  * __Title__
  * __Source__
- * __PublicationDate__ or __Publication date__
- * __Author__ or __Authors__
+ * __PublicationDate__ ou __Publication date__
+ * __Author__ ou __Authors__
 
 L’ordre des champs n’a pas d’importance et les noms de champs ne sont pas sensibles 
 à la casse. D’autres champs peuvent être présents dans le fichier, ils ne seront 
