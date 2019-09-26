@@ -23,8 +23,8 @@ my $usage = "Usage : \n" .
 
 my $arguments = join(" ", @ARGV);
 
-my $version     = "1.1.1";
-my $dateModif   = "April 1st, 2019";
+my $version     = "1.2.0";
+my $dateModif   = "September 26th, 2019";
 
 # Initialization of the globals variables
 # needed to read the options
@@ -91,7 +91,6 @@ if ( $help ) {
 
 # usage(2) if not $number or not $input or not $output;
 if ( not $number or not $input or not $output ) {
-        print STDERR "Arguments: \"$arguments\"\n";
         usage(2);
         }
 
@@ -349,9 +348,11 @@ while(<INP>) {
         if ( $key ne $current ) {
                 if ( defined $current ) {
                         my @tmp = sort keys %tmp;
-                        printf KMN "%s     %07d\n", $current, $#tmp + 1;
-                        foreach my $item (@tmp) {
-                                printf KMN "%s\n", $item;
+                        if ( @tmp ) {
+                                printf KMN "%s     %07d\n", $current, $#tmp + 1;
+                                foreach my $item (@tmp) {
+                                        printf KMN "%s\n", $item;
+                                        }
                                 }
                         }
                 %tmp = ();
